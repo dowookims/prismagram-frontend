@@ -14,7 +14,7 @@ const Container = styled.button`
   font-size: 0.9rem;
 `
 
-const Button = ({ text }) => <Container>{text}</Container>
+const Button = ({ text }) => <Container type="submit">{text}</Container>
 
 Button.propTypes = {
   text: PropTypes.string.isRequired

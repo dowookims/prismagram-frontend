@@ -5,6 +5,8 @@ import styled, { ThemeProvider,  } from "styled-components";
 import GlobalStyles from "../Styles/GlobayStyles";
 import Theme from '../Styles/Theme';
 import AppRouter from './Router';
+import { ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './Footer';
 
 
@@ -28,6 +30,7 @@ export default () => {
       <GlobalStyles />
       <AppRouter isLoggedIn={isLoggedIn}/>
       <Footer/>
+      <ToastContainer position={toast.POSITION.BOTTOM_LEFT}/>
     </Wrapper>
   </ThemeProvider>
   )
