@@ -7,7 +7,7 @@ import styled, { ThemeProvider,  } from "styled-components";
 import { ToastContainer, toast} from "react-toastify";
 import GlobalStyles from "../Styles/GlobayStyles";
 import Theme from '../Styles/Theme';
-import Routes from './Router';
+import Routes from './Routes';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -35,7 +35,7 @@ export default () => {
         <Header />
         <Wrapper>
           <Routes isLoggedIn={isLoggedIn}/>
-          <Footer/>
+          <Footer />
         </Wrapper>
         </>
       </Router>

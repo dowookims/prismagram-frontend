@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { gql } from "apollo-boost";
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
 import { Insta, Compass, HeartEmpty, User } from "./Icon";
+import { useQuery } from "react-apollo-hooks";
 
  const Header = styled.header`
   width: 100%;
@@ -60,25 +62,32 @@ import { Insta, Compass, HeartEmpty, User } from "./Icon";
   }
 `;
 
- export default () => {
+const ME = gql`
+  {
+    me {
+        name
+    }
+  }
+`
+
+ export default withRouter(({history}) => {
   const search = useInput("");
+  const { data } = useQuery(ME);
+  console.log(data);
+  const onSearchSubmit = (e) => {
+    e.preventDefault()
+    history.push(`/search?${search.value}`)
+  }
   return (
     <Header>
       <HeaderWrapper>
         <HeaderColumn>
           <Link to="/">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <Insta />
-            </svg>
+            <Insta />
           </Link>
         </HeaderColumn>
         <HeaderColumn>
-          <form>
+          <form onSubmit={onSearchSubmit}>
             <SearchInput {...search} placeholder="Search" />
           </form>
         </HeaderColumn>
@@ -89,11 +98,17 @@ import { Insta, Compass, HeartEmpty, User } from "./Icon";
           <HeaderLink to="/notifications">
             <HeartEmpty />
           </HeaderLink>
-          <HeaderLink to="/username">
+          { !data.me ? ( 
+          <HeaderLink to="/#">
+            <User />
+          </HeaderLink> 
+          ) : (
+          <HeaderLink to={data.me.name}>
             <User />
           </HeaderLink>
+          )}
         </HeaderColumn>
       </HeaderWrapper>
     </Header>
   );
-};
+});
