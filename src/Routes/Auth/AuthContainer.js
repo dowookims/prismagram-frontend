@@ -80,12 +80,13 @@ export default () => {
           const { data: { confirmSecret:token }} = await confirmSecretMutation();
           if (token !== "" && token !== undefined){
             localLoginInMutation({ variables: { token }})
+          } else {
+            throw Error()
           }
 
           // TODO: Login Logic
-        } catch (e){
-          console.log(e)
-          toast.error("Can't confirm secret")
+        } catch {
+          toast.error("Can't confirm secret, check again")
         }
       }
     }

@@ -29,39 +29,40 @@ const Copyright = styled.span`
 `;
 
 
-export default () => (<Footer>
-  <List>    
-    <ListItem>
-      <Link href="#">about us</Link>
-      </ListItem>
-    <ListItem>
-      <Link href="#">support</Link>
-      </ListItem>
-    <ListItem>
-      <Link href="#">press</Link>
-      </ListItem>
-    <ListItem>
-      <Link href="#">api</Link>
-      </ListItem>
-    <ListItem>
-      <Link href="#">jobs</Link>
-      </ListItem>
-    <ListItem>
-      <Link href="#">directory</Link>
-      </ListItem>
-    <ListItem>
-      <Link href="#">profiles</Link>
-      </ListItem>
-    <ListItem>
-      <Link href="#">hashtags</Link>
-      </ListItem>
-    <ListItem>
-      <Link href="#">language</Link>
-      </ListItem>
-  </List>
-  <Copyright>
-    Instagram{new Date().getFullYear()} &copy;
-  </Copyright>
-</Footer>
+export default () => (
+  <Footer>
+    <List>    
+      <ListItem>
+        <Link href="#">about us</Link>
+        </ListItem>
+      <ListItem>
+        <Link href="#">support</Link>
+        </ListItem>
+      <ListItem>
+        <Link href="#">press</Link>
+        </ListItem>
+      <ListItem>
+        <Link href="#">api</Link>
+        </ListItem>
+      <ListItem>
+        <Link href="#">jobs</Link>
+        </ListItem>
+      <ListItem>
+        <Link href="#">directory</Link>
+        </ListItem>
+      <ListItem>
+        <Link href="#">profiles</Link>
+        </ListItem>
+      <ListItem>
+        <Link href="#">hashtags</Link>
+        </ListItem>
+      <ListItem>
+        <Link href="#">language</Link>
+        </ListItem>
+    </List>
+    <Copyright>
+      InstaClone{new Date().getFullYear()} &copy;
+    </Copyright>
+  </Footer>
 );
 
