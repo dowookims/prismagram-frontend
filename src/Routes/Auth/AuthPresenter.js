@@ -74,11 +74,12 @@ export default ({
         </form>
         )}
         {action === "confirm" && <form onSubmit={onSubmit}>
-          <Input placeholder="Past your secret" required {...secret}/>
+          <Input placeholder="Paste your secret" required {...secret}/>
           <Button text={"Confirm"}/>
         </form>}
       </Form>
-      <StateChanger>
+      { action !== "confirm" && (
+        <StateChanger>
         {action ==="logIn" ? (
           <>
             Don't have an account? <Link onClick={() => setAction("signUp")}>Sign up</Link>
@@ -89,5 +90,6 @@ export default ({
           </>
         )}
       </StateChanger>
+      )}
     </Wrapper>
 );
